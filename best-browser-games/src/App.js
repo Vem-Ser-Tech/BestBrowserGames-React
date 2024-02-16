@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import CadastroForm from './components/cadastro';
+import CadastroForm from './components/CadastroForm';
 
 function App() {
   return (
