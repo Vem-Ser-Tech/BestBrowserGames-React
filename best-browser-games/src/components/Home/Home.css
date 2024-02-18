@@ -1,0 +1,33 @@
+body.home-page {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-size: 100% auto;
+    height: 100vh;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar li {
+    display: inline;
+    margin-left: 20px;
+  }
+  
+  .navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  

@@ -1,26 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
-import CadastroForm from './components/CadastroForm';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './components/Home/Home';
+import CadastroForm from './components/Cadastro/CadastroForm';
+import { useState  } from 'react';
 
 function App() {
+
+  const [backgroundImage] = useState('/pagina-de-destino-de-jogos-de-neon-desenhada-a-mao/8084267-editado.jpg');
+  
+  // const location = useLocation();
+
+  // useEffect(() => {
+  //   if (location.pathname === '/') {
+  //     document.body.classList.add('home-page');
+  //     document.body.classList.remove('cadastro-page');
+  //   } else if (location.pathname === '/cadastro') {
+  //     document.body.classList.add('cadastro-page');
+  //     document.body.classList.remove('home-page');
+  //   }
+  // }, [location.pathname]);
+
   return (
-    <div className="App">
-      <CadastroForm />
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home backgroundImage={backgroundImage} />}/>
+        <Route path="/cadastro" element={<CadastroForm setBackgroundImage={backgroundImage} />} />
+      </Routes>
+    </Router>
   );
 }
 
