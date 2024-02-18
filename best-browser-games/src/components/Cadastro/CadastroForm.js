@@ -66,21 +66,11 @@ const CadastroForm = ({backgroundImage}) => {
       const data = await response.json();
       
       addToast(data.message, { appearance: 'success' , autoDismiss: true , autoDismissTimeout: 2500 }); // 2000 ms = 2 segundos
-      console.log(data.message);
       
     } catch (error) {
       console.error('Erro:', error.message);
     }
     
-    // fazer uma requisição para uma API de cadastro??
-    console.log('Dados do formulário:', {
-      nomeCompleto,
-      email,
-      senha,
-      dataNascimento: birthday,
-      estado,
-      pais
-    });
   };
 
   return (
