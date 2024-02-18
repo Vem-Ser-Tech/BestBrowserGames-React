@@ -29,10 +29,14 @@ const Home = ({ backgroundImage }) => {
       <nav className="navbar">
         <ul>
           <li>
-            <Link to="/cadastro">Cadastrar</Link>
+            <Link to="/cadastro">
+              <button type="">Cadastrar</button>
+            </Link>
           </li>
           <li>
-            <Link to="/login">Login</Link>
+            <Link to="/login">
+              <button type="">Login</button>
+            </Link>
           </li>
         </ul>
       </nav>

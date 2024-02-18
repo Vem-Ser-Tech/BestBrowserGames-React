@@ -1,6 +1,7 @@
 import React, { useState, useEffect  } from 'react';
 import './CadastroForm.css';
 import { Link, useLocation } from 'react-router-dom';
+import { useToasts } from 'react-toast-notifications';
 
 const CadastroForm = ({backgroundImage}) => {
   const [nomeCompleto, setNomeCompleto] = useState('');
@@ -9,6 +10,7 @@ const CadastroForm = ({backgroundImage}) => {
   const [dataNascimento, setDataNascimento] = useState('');
   const [estado, setEstado] = useState('');
   const [pais, setPais] = useState('');
+  const { addToast } = useToasts();
   
   const location = useLocation();
 
@@ -31,18 +33,44 @@ const CadastroForm = ({backgroundImage}) => {
   }, [backgroundImage]);
 
   // Função para lidar com o envio do formulário
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault();    
+
+    //input tipo date traz a data no formato: aaaa-mm-dd, então preciso inverter para: dd-mm-aaaa
+    const formattedDate = dataNascimento.split('-').reverse().join('-');
+
+    //removendo - e juntando tudo no formato ddmmaaaa
+    const birthday = formattedDate.split('-').join('');
+
+    try {
+      const response = await fetch('https://api-best-browser-games.vercel.app/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: nomeCompleto,
+          email,
+          password: senha,
+          confirmPassword: senha, // Considerando que a confirmação de senha é igual à senha. Precisamos validar isso
+          birthDate: birthday,
+          country: pais,
+          state: estado,
+        }),
+      });
+  
+      if (!response.ok) {
+        throw new Error('Erro ao cadastrar usuário');
+      }
+  
+      const data = await response.json();
+      
+      addToast(data.message, { appearance: 'success' , autoDismiss: true , autoDismissTimeout: 2500 }); // 2000 ms = 2 segundos
+      
+    } catch (error) {
+      console.error('Erro:', error.message);
+    }
     
-    // fazer uma requisição para uma API de cadastro??
-    console.log('Dados do formulário:', {
-      nomeCompleto,
-      email,
-      senha,
-      dataNascimento,
-      estado,
-      pais
-    });
   };
 
   return (
