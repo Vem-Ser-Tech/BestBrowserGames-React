@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import CadastroForm from './components/Cadastro/CadastroForm';
 import Login from './components/Login/Login';
+import Categoria from './components/Categoria/Categoria';
 import { useState  } from 'react';
 import { ToastProvider } from 'react-toast-notifications';
 
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home backgroundImage={backgroundImage} />}/>
           <Route path="/cadastro" element={<CadastroForm backgroundImage={backgroundImage} />} />
           <Route path="/login" element={<Login backgroundImage={backgroundImage} />} />
+          <Route path="/categoria" element={<Categoria backgroundImage={backgroundImage} />} />
         </Routes>
       </ToastProvider>
     </Router>
