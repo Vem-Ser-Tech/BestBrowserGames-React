@@ -2,6 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home/Home';
 import CadastroForm from './components/Cadastro/CadastroForm';
+import Login from './components/Login/Login';
 import { useState  } from 'react';
 import { ToastProvider } from 'react-toast-notifications';
 
@@ -14,7 +15,8 @@ function App() {
       <ToastProvider>
         <Routes>
           <Route path="/" element={<Home backgroundImage={backgroundImage} />}/>
-          <Route path="/cadastro" element={<CadastroForm setBackgroundImage={backgroundImage} />} />
+          <Route path="/cadastro" element={<CadastroForm backgroundImage={backgroundImage} />} />
+          <Route path="/login" element={<Login backgroundImage={backgroundImage} />} />
         </Routes>
       </ToastProvider>
     </Router>

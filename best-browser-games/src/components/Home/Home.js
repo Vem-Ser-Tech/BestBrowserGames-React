@@ -4,20 +4,14 @@ import './Home.css';
 
 const Home = ({ backgroundImage }) => {
 
-  const location = useLocation();
-
   useEffect(() => {
-    if (location.pathname === '/') {
+    document.body.classList.remove('cadastro-page');
+      document.body.classList.remove('login-page');
       document.body.classList.add('home-page');
-      document.body.classList.remove('cadastro-page');
-    } else if (location.pathname === '/cadastro') {
-      document.body.classList.add('cadastro-page');
-      document.body.classList.remove('home-page');
-    }
-  }, [location.pathname]);
+  }, []);
 
   useEffect(() => {
-    document.body.style.backgroundImage = `url(${backgroundImage})`;
+    document.body.style.backgroundImage = `url(/pagina-de-destino-de-jogos-de-neon-desenhada-a-mao/8084267-editado.jpg)`;
     // limpando o estilo do body quando o componente for desmontado
     return () => {
       document.body.style.backgroundImage = 'none';
@@ -40,7 +34,6 @@ const Home = ({ backgroundImage }) => {
           </li>
         </ul>
       </nav>
-      <h1>Bem-vindo ao BestBrowserGames</h1>
     </div>
   );
 };

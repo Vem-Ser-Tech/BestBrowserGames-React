@@ -10,10 +10,11 @@ body.cadastro-page{
     align-items: center; 
   }
   
-  form {
+  form.cadastro-form {
     width: 300px;
     margin: 20px auto;
   }
+  
   
   label {
     display: block;
