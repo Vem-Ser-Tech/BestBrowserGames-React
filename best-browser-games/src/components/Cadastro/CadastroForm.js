@@ -15,18 +15,13 @@ const CadastroForm = ({backgroundImage}) => {
   const location = useLocation();
 
   useEffect(() => {
-    if (location.pathname === '/') {
-      document.body.classList.add('home-page');
-      document.body.classList.remove('cadastro-page');
-    } else if (location.pathname === '/cadastro') {
-      document.body.classList.add('cadastro-page');
-      document.body.classList.remove('home-page');
-    }
-  }, [location.pathname]);
+    document.body.classList.add('cadastro-page');
+    document.body.classList.remove('home-page');
+  }, []);
 
   useEffect(() => {
     document.body.style.backgroundImage = `url(/photocall-de-jogos-de-neon-desenhado-a-mao/8088488.jpg)`;
-    // limpando o estilo do body quando o componente for desmontado
+    
     return () => {
       document.body.style.backgroundImage = 'none';
     };
@@ -68,6 +63,7 @@ const CadastroForm = ({backgroundImage}) => {
       addToast(data.message, { appearance: 'success' , autoDismiss: true , autoDismissTimeout: 2500 }); // 2000 ms = 2 segundos
       
     } catch (error) {
+      addToast(error.message, { appearance: 'error' , autoDismiss: true , autoDismissTimeout: 2500 }); // 2000 ms = 2 segundos
       console.error('Erro:', error.message);
     }
     
