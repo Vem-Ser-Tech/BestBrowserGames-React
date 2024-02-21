@@ -1,8 +1,28 @@
-import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate  } from 'react-router-dom';
 import './Home.css';
 
 const Home = ({ backgroundImage }) => {
+  const [isAdmin, setIsAdmin] = useState(false);
+  const navigate = useNavigate();
+
+  //função para verificar se o usuário q está logado é um admin
+  const isUserAdmin = () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+          const decodedToken = JSON.parse(atob(token.split('.')[1]));
+          console.log(decodedToken.roles.includes('admin'));
+          return decodedToken.roles.includes('admin');
+      }
+      return false;
+  };
+
+  //ser admin vai definir se o botão categoria vai ser exibido ou não
+  useEffect(() => {
+      setIsAdmin(isUserAdmin());
+      
+      console.log('isAdmin: ',isAdmin);
+  }, []);
 
   useEffect(() => {
     document.body.classList.remove('cadastro-page');
@@ -19,6 +39,12 @@ const Home = ({ backgroundImage }) => {
     };
   }, [backgroundImage]);
 
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+  
+    navigate('/login');
+  };
+
   return (
     <div className="home">
       <nav className="navbar">
@@ -28,16 +54,23 @@ const Home = ({ backgroundImage }) => {
               <button type="">+ Usuário</button>
             </Link>
           </li>
-          <li>
-            <Link to="/categoria">
-              <button type="">Categoria</button>
-            </Link>
-          </li>
+          {isAdmin &&
+            <li>
+              <Link to="/categoria">
+                <button type="">Categoria</button>
+              </Link>
+            </li>
+          }
           <li>
             <Link to="/login">
               <button type="">Login</button>
             </Link>
           </li>
+          {localStorage.getItem('token') && (
+            <li>
+              <button onClick={() => handleLogout()}>Desconectar</button>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

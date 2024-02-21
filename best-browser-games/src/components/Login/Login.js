@@ -48,7 +48,7 @@ const Login = ({ backgroundImage }) => {
       localStorage.setItem('token', token);
 
       addToast('Login bem-sucedido!', { appearance: 'success' , autoDismiss: true , autoDismissTimeout: 2500 });
-      // navigate('/');
+      navigate('/');
 
     } catch (error) {
       addToast(error.message, { appearance: 'error' , autoDismiss: true , autoDismissTimeout: 2500 });
