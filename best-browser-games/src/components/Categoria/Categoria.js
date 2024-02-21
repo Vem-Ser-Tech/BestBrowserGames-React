@@ -53,7 +53,7 @@ const Categoria = ({backgroundImage}) => {
     return (
         <div className='categoria-form'>
             <h2 className='categoria-title'>Listagem de Categorias</h2>
-            <ul>
+            <ul className='categoria-list'>
                 {categorias.map((categoria) => (
                     <li className='categoria-list' key={categoria._id}>
                         {categoria.name}
@@ -64,7 +64,7 @@ const Categoria = ({backgroundImage}) => {
                     </li>
                 ))}
             </ul>
-            <div className='end'>
+            <div className='end-categoria'>
                 <button type="submit">+ Categoria</button>
                 <Link to="/"><button type="" className='back'>Voltar</button></Link>
             </div>

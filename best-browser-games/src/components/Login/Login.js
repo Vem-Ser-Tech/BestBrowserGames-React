@@ -35,6 +35,18 @@ const Login = ({ backgroundImage }) => {
           throw new Error('Erro ao fazer login');
       }
 
+      const data = await response.json();
+      const token = data.token;
+      console.log(token);
+
+      // Decodificar o token JWT (JSON Web Tokens)
+      const decodedToken = JSON.parse(atob(token.split('.')[1]));
+      const { roles } = decodedToken;
+      console.log(roles[0]);
+
+      // Armazenar o token no localStorage
+      localStorage.setItem('token', token);
+
       addToast('Login bem-sucedido!', { appearance: 'success' , autoDismiss: true , autoDismissTimeout: 2500 });
       navigate('/');
 
