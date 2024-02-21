@@ -1,0 +1,9 @@
+form.categoria-create{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+input.categoria-create{
+    width: 50%;
+}
