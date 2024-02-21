@@ -45,3 +45,10 @@ div.end-categoria{
     width: -webkit-fill-available;
     margin: 10%;
 }
+
+
+div.end-categoriaForm{
+    display: flex;
+    width: -webkit-fill-available;
+    margin: 10%;
+}
