@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Home.css';
 
 const Home = ({ backgroundImage }) => {
@@ -7,6 +7,7 @@ const Home = ({ backgroundImage }) => {
   useEffect(() => {
     document.body.classList.remove('cadastro-page');
       document.body.classList.remove('login-page');
+      document.body.classList.remove('categoria-page');
       document.body.classList.add('home-page');
   }, []);
 
@@ -25,6 +26,11 @@ const Home = ({ backgroundImage }) => {
           <li>
             <Link to="/cadastro">
               <button type="">Cadastrar</button>
+            </Link>
+          </li>
+          <li>
+            <Link to="/categoria">
+              <button type="">Categoria</button>
             </Link>
           </li>
           <li>
