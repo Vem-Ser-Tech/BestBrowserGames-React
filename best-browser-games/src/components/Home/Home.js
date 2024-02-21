@@ -25,7 +25,7 @@ const Home = ({ backgroundImage }) => {
         <ul>
           <li>
             <Link to="/cadastro">
-              <button type="">Cadastrar</button>
+              <button type="">+ Usuário</button>
             </Link>
           </li>
           <li>

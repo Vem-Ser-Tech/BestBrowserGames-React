@@ -1,6 +1,6 @@
 import React, { useState, useEffect  } from 'react';
 import './CadastroForm.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useToasts } from 'react-toast-notifications';
 
 const CadastroForm = ({backgroundImage}) => {
@@ -11,6 +11,7 @@ const CadastroForm = ({backgroundImage}) => {
   const [estado, setEstado] = useState('');
   const [pais, setPais] = useState('');
   const { addToast } = useToasts();
+  const navigate = useNavigate();
   
   const location = useLocation();
 
@@ -61,7 +62,8 @@ const CadastroForm = ({backgroundImage}) => {
       const data = await response.json();
       
       addToast(data.message, { appearance: 'success' , autoDismiss: true , autoDismissTimeout: 2500 }); // 2000 ms = 2 segundos
-      
+      navigate('/');
+
     } catch (error) {
       addToast(error.message, { appearance: 'error' , autoDismiss: true , autoDismissTimeout: 2500 }); // 2000 ms = 2 segundos
       console.error('Erro:', error.message);

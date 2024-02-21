@@ -10,6 +10,12 @@ div.categoria-form {
     display: flex;
     flex-direction: column;
     margin-top: 20%;
+    background-color: #000000d9;
+    border-radius: 10%;
+    border: solid 5px;
+    border-color: white;
+    width: 140%;
+    align-items: center;
 }
 
 div.categoria-icons{
@@ -23,7 +29,19 @@ div.categoria-icons{
     color: white;
 }
 
+ul.categoria-list {
+    margin-right: 10%;
+    width: 70%;
+}
+
 li.categoria-list {
     display: flex;
     justify-content: space-between;
+}
+
+div.end-categoria{
+    display: flex;
+    justify-content: space-between;
+    width: -webkit-fill-available;
+    margin: 10%;
 }
