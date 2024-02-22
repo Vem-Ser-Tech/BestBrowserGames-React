@@ -92,7 +92,11 @@ const BestBrowserGames = ({ backgroundImage }) => {
                 ))}
             </ul>
             <div className='end-browserGames'>
-                <button onClick={() => setShowForm(!showForm)}>+ Browser Game</button>
+                <li>
+                    <Link to="/BestBrowserGamesForm">
+                        <button type="">+ Browser Game</button>
+                    </Link>
+                </li>
                 <Link to="/"><button type="" className='back'>Voltar</button></Link>
             </div>
             <div className='end-browserGamesList'>

@@ -46,11 +46,11 @@ const Categoria = ({backgroundImage}) => {
         const requestOptions = {
             method: 'POST',
             headers: {
-            'Authorization': `Bearer ${token}`,
-            'Content-Type': 'application/json'
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-            name: nomeCategoria
+                name: nomeCategoria
             })
         };
         
