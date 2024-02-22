@@ -1,0 +1,83 @@
+body.BestBrowserGamesForm-page {
+    align-items: center;
+    background-position: 50%;
+    background-size: cover;
+    display: flex;
+    font-family: Arial,sans-serif;
+    height: 100vh;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+form.BestBrowserGamesForm {
+    border: 5px solid #fff;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+select.BestBrowserGamesForm {
+    width: calc(100% - 20px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+option.BestBrowserGamesForm {
+    font-weight: 700;
+    background-color: #cd45ef75;
+}
+
+option.BestBrowserGamesForm :hover {
+    background-color: #b1d22d;
+}
+  
+  label {
+    width: 106%;
+    margin-bottom: 10px;
+    color: #b1d22d;
+  }
+  
+  input {
+    width: calc(100% - 20px); 
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  input:focus {
+    border-color: #ffc160;
+  }
+  
+  form.BestBrowserGamesForm button {
+    padding: 10px;
+    background-color: #afd32c;
+    font-weight: 700;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  form.BestBrowserGamesForm button.back {
+    background-color: #cd45ef;
+  }
+  
+  form.BestBrowserGamesForm button:hover {
+    background-color: #ffc160;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .end {
+    display: flex;
+    justify-content: space-between;
+  }
+  

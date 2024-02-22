@@ -1,6 +1,42 @@
+body.login-page{
+  margin: 0;
+  padding: 0;
+  background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 
 
-  form.login-form {
-    width: 300px;
-    padding: 20px
-  }
+form.login-form {
+  padding: 20px;
+  border-radius: 15px;
+  background-color: #000000d9;
+  border: solid 5px;
+  border-color: white;
+}
+
+div.login-form{
+  padding: 20%;
+  display: flex;
+  justify-content: center;  
+}
+
+form.login-form button {
+  padding: 10px;
+  background-color: #afd32c;
+  font-weight: 700;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+}
+
+form.login-form button.back {
+  background-color: #cd45ef;
+}
+
+form.login-form button:hover {
+  background-color: #ffc160;
+}

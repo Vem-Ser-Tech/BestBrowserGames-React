@@ -5,6 +5,7 @@ import CadastroForm from './components/Cadastro/CadastroForm';
 import Login from './components/Login/Login';
 import Categoria from './components/Categoria/Categoria';
 import BestBrowserGames from './components/BestBrowserGames/BestBrowserGames';
+import BestBrowserGamesForm from './components/BestBrowserGames/BestBrowserGamesForm/BestBrowserGamesForm';
 import { useState  } from 'react';
 import { ToastProvider } from 'react-toast-notifications';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -23,6 +24,7 @@ function App() {
           <Route path="/login" element={<Login backgroundImage={backgroundImage} />} />
           <Route path="/categoria" element={<Categoria backgroundImage={backgroundImage} />} />
           <Route path="/BestBrowserGames" element={<BestBrowserGames backgroundImage={backgroundImage} />} />
+          <Route path="/BestBrowserGamesForm" element={<BestBrowserGamesForm backgroundImage={backgroundImage} />} />
         </Routes>
       </ToastProvider>
     </Router>
