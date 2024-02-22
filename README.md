@@ -15,4 +15,5 @@ Tela - Login
 <br>
 Tela inicial - Admin
 
-![image](https://github.com/Vem-Ser-Tech/BestBrowserGames-React/assets/83955839/76133b98-bdfc-4496-b64a-db454f854e2d)
+![image](https://github.com/Vem-Ser-Tech/BestBrowserGames-React/assets/83955839/643b2e6b-13d6-4001-bc45-cbad066c840c)
+
