@@ -1,33 +1,53 @@
 body.home-page {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-size: cover;
-    background-position: center;
-    background-size: 100% auto;
-    height: 100vh;
-  }
-  
-  .navbar {
-    display: flex;
-    justify-content: flex-end;
-    padding: 20px;
-  }
-  
-  .navbar ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar li {
-    display: inline;
-    margin-left: 20px;
-  }
-  
-  .navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-  }
-  
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-size: 100% auto;
+  height: 100vh;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex; 
+  align-items: center; 
+}
+
+.navbar li {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+div.home {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2%;
+}
+
+div.home button {
+  padding: 10px;
+  background-color: #afd32c;
+  font-weight: 700;
+  color: #000;
+  border: none;
+  border-radius: 5px;
+}
+
+div.home button:hover {
+  background-color: #ffc160;
+}

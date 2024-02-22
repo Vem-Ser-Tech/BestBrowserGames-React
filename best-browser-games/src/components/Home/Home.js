@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate  } from 'react-router-dom';
 import './Home.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 const Home = ({ backgroundImage }) => {
   const [isAdmin, setIsAdmin] = useState(false);
@@ -57,18 +60,29 @@ const Home = ({ backgroundImage }) => {
           {isAdmin &&
             <li>
               <Link to="/categoria">
-                <button type="">Categoria</button>
+                <button type="">+ Categoria</button>
               </Link>
             </li>
           }
-          <li>
+          {!localStorage.getItem('token') && (
             <Link to="/login">
               <button type="">Login</button>
             </Link>
+          )}
+          <li>
           </li>
           {localStorage.getItem('token') && (
             <li>
-              <button onClick={() => handleLogout()}>Desconectar</button>
+              <OverlayTrigger
+                placement="bottom"
+                overlay={<Tooltip>Desconectar</Tooltip>} // Tooltip "Desconectar"
+              >
+                <FontAwesomeIcon
+                  icon={faRightToBracket}
+                  style={{ color: '#ffc05f', cursor: 'pointer', fontSize: 'xx-large' }}
+                  onClick={() => handleLogout()}
+                />
+              </OverlayTrigger>
             </li>
           )}
         </ul>

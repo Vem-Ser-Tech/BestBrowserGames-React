@@ -6,6 +6,8 @@ import Login from './components/Login/Login';
 import Categoria from './components/Categoria/Categoria';
 import { useState  } from 'react';
 import { ToastProvider } from 'react-toast-notifications';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
 

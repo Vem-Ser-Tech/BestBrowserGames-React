@@ -52,3 +52,25 @@ div.end-categoriaForm{
     width: -webkit-fill-available;
     margin: 10%;
 }
+
+div.categoria-form button {
+    padding: 10px;
+    background-color: #afd32c;
+    font-weight: 700;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+}
+
+div.categoria-form button.back {
+    background-color: #cd45ef;
+}
+
+div.categoria-form button:hover {
+    background-color: #ffc160;
+}
+  
+div.categoria-form h2{
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
