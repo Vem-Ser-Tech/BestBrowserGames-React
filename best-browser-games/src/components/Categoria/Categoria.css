@@ -11,7 +11,7 @@ div.categoria-form {
     flex-direction: column;
     margin-top: 20%;
     background-color: #000000d9;
-    border-radius: 10%;
+    border-radius: 20px;
     border: solid 5px;
     border-color: white;
     width: 140%;
