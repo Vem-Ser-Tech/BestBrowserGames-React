@@ -31,6 +31,7 @@ const Home = ({ backgroundImage }) => {
     document.body.classList.remove('cadastro-page');
       document.body.classList.remove('login-page');
       document.body.classList.remove('categoria-page');
+      document.body.classList.remove('browserGames-page');
       document.body.classList.add('home-page');
   }, []);
 
