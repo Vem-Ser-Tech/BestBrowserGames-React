@@ -6,6 +6,8 @@ body.home-page {
   background-position: center;
   background-size: 100% auto;
   height: 100vh;
+  background-repeat: no-repeat;  
+  background-color: #010014;
 }
 
 .navbar {

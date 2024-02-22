@@ -1,0 +1,83 @@
+body.browserGames-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+}
+
+div.BrowserGames {
+    margin: 20px;
+}
+
+.BrowserGames-img{
+    display: flex;
+    justify-content: center;
+}
+
+.BrowserGames-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.BrowserGames-title {
+    font-size: 24px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+  
+ul.BrowserGames-list {
+    list-style-type: none;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+  
+.BrowserGames-list li {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #000000f5;
+    border-radius: 20px;
+    border: solid 5px;
+    border-color: white;
+    color: #b1d22d;
+}
+  
+.BrowserGames-list li img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+  
+.BrowserGames-icons {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.end-browserGames {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.end-browserGames button {
+    padding: 10px 20px;
+    background-color: #afd32c;
+    font-weight: 700;
+    color: #000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.end-browserGames button.back {
+    background-color: #cd45ef;
+}
+
+.end-browserGames button:hover {
+    background-color: #ffc160;
+}  

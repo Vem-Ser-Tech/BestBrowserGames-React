@@ -54,28 +54,37 @@ const Home = ({ backgroundImage }) => {
         <ul>
           <li>
             <Link to="/cadastro">
-              <button type="">+ Usuário</button>
+              <button type="">Usuário</button>
             </Link>
           </li>
+
+          <li>
+            <Link to="/BestBrowserGames">
+              <button type="">Best Browser Games</button>
+            </Link>
+          </li>
+
           {isAdmin &&
             <li>
               <Link to="/categoria">
-                <button type="">+ Categoria</button>
+                <button type="">Categorias</button>
               </Link>
             </li>
           }
+
           {!localStorage.getItem('token') && (
-            <Link to="/login">
-              <button type="">Login</button>
-            </Link>
+            <li>
+              <Link to="/login">
+                <button type="">Login</button>
+              </Link>
+            </li>
           )}
-          <li>
-          </li>
+
           {localStorage.getItem('token') && (
             <li>
               <OverlayTrigger
                 placement="bottom"
-                overlay={<Tooltip>Desconectar</Tooltip>} // Tooltip "Desconectar"
+                overlay={<Tooltip>Desconectar</Tooltip>} 
               >
                 <FontAwesomeIcon
                   icon={faRightToBracket}

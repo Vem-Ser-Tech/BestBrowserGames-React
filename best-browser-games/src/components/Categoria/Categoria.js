@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import CategoriaForm from './Categoria Form/CategoriaForm';
 import { useToasts } from 'react-toast-notifications';
+import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 
 const fetchCategorias = async (setCategorias) => {
     try {
@@ -77,8 +78,27 @@ const Categoria = ({backgroundImage}) => {
                     <li className='categoria-list' key={categoria._id}>
                         {categoria.name}
                         <div className='categoria-icons'>
-                            <FontAwesomeIcon icon={faEdit} style={{ color: '#4ab7da', cursor: 'pointer' }} onClick={() => handleEditarCategoria(categoria._id)} />
-                            <FontAwesomeIcon icon={faTrashAlt} style={{ color: '#ffc05f', cursor: 'pointer' }} onClick={() => handleExcluirCategoria(categoria._id)} />
+                            <OverlayTrigger
+                                placement="bottom"
+                                overlay={<Tooltip>Editar</Tooltip>} 
+                            >
+                                <FontAwesomeIcon
+                                    icon={faEdit}
+                                    style={{ color: '#4ab7da', cursor: 'pointer' }}
+                                    onClick={() => handleEditarCategoria(categoria._id)}
+                                />
+                            </OverlayTrigger>
+
+                            <OverlayTrigger
+                                placement="bottom"
+                                overlay={<Tooltip>Excluir</Tooltip>} 
+                            >
+                                <FontAwesomeIcon
+                                    icon={faTrashAlt}
+                                    style={{ color: '#ffc05f', cursor: 'pointer' }}
+                                    onClick={() => handleExcluirCategoria(categoria._id)}
+                                />
+                            </OverlayTrigger> 
                         </div>
                     </li>
                 ))}
