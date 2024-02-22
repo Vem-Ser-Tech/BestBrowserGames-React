@@ -21,14 +21,27 @@ const fetchBrowserGames = async (setBrowserGames) => {
 
 const BestBrowserGames = ({ backgroundImage }) => {
     const [browserGames, setBrowserGames] = useState([]);
+    const [isAdmin, setIsAdmin] = useState(false);
     const { addToast } = useToasts();
-    const [showForm, setShowForm] = useState(false);
+
+    const isUserAdmin = () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = JSON.parse(atob(token.split('.')[1]));
+            console.log(decodedToken.roles.includes('admin'));
+            return decodedToken.roles.includes('admin');
+        }
+        return false;
+    };
 
     useEffect(() => {
         document.body.classList.add('browserGames-page');
         document.body.classList.remove('home-page');
+        document.body.classList.remove('BestBrowserGamesForm-page');
         
         fetchBrowserGames(setBrowserGames);
+
+        setIsAdmin(isUserAdmin());
     }, []);
 
     useEffect(() => {
@@ -50,35 +63,48 @@ const BestBrowserGames = ({ backgroundImage }) => {
     return (
         <div className='BrowserGames'>
             <h2 className='BrowserGames-title'>Listagem de Browser Games</h2>
+
+            <div className='end-browserGames'>
+                {isAdmin &&
+                    <Link to="/BestBrowserGamesForm">
+                        <button type="">+ Browser Game</button>
+                    </Link>
+                }                
+                <Link to="/"><button type="" className='back'>Voltar</button></Link>
+            </div>
+
             <ul className='BrowserGames-list'>
                 {browserGames.map((game) => (
                     <li className='BrowserGames-list' key={game._id}>
                         <div className='BrowserGames-header'>
                             <div><strong>Nome:</strong> {game.name}<br /></div>
-                                                        
-                            <div className='BrowserGames-icons'>
-                                <OverlayTrigger
-                                    placement="bottom"
-                                    overlay={<Tooltip>Editar</Tooltip>} 
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faEdit}
-                                        style={{ color: '#4ab7da', cursor: 'pointer' }}
-                                        onClick={() => handleEditarBrowserGames(game._id)}
-                                    />
-                                </OverlayTrigger>
 
-                                <OverlayTrigger
-                                    placement="bottom"
-                                    overlay={<Tooltip>Excluir</Tooltip>} 
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faTrashAlt}
-                                        style={{ color: '#ffc05f', cursor: 'pointer' }}
-                                        onClick={() => handleExcluirBrowserGames(game._id)}
-                                    />
-                                </OverlayTrigger>                                
-                            </div>
+                            {isAdmin &&
+                                <div className='BrowserGames-icons'>
+                                    <OverlayTrigger
+                                        placement="bottom"
+                                        overlay={<Tooltip>Editar</Tooltip>} 
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faEdit}
+                                            style={{ color: '#4ab7da', cursor: 'pointer' }}
+                                            onClick={() => handleEditarBrowserGames(game._id)}
+                                        />
+                                    </OverlayTrigger>
+
+                                    <OverlayTrigger
+                                        placement="bottom"
+                                        overlay={<Tooltip>Excluir</Tooltip>} 
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={faTrashAlt}
+                                            style={{ color: '#ffc05f', cursor: 'pointer' }}
+                                            onClick={() => handleExcluirBrowserGames(game._id)}
+                                        />
+                                    </OverlayTrigger>                                
+                                </div>
+                            }          
+                            
                         </div>
 
                         <strong>Categoria:</strong> {game.category.name}<br />
@@ -91,17 +117,6 @@ const BestBrowserGames = ({ backgroundImage }) => {
                     </li>
                 ))}
             </ul>
-            <div className='end-browserGames'>
-                <li>
-                    <Link to="/BestBrowserGamesForm">
-                        <button type="">+ Browser Game</button>
-                    </Link>
-                </li>
-                <Link to="/"><button type="" className='back'>Voltar</button></Link>
-            </div>
-            <div className='end-browserGamesList'>
-                {/* {showForm && </>} */}
-            </div>
         </div>
     );
 };

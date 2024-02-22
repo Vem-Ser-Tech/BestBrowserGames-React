@@ -8,30 +8,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body.login-page{
-  margin: 0;
-  padding: 0;
-  background-position: center;
-  height: 100vh;
-  background-repeat: no-repeat;
-}
-
-div.login-form{
-  padding: 20%;
-  display: flex;
-  justify-content: center;  
-}
-
-form.login-form{
-  background-color: #000000d9;
-  padding: 2%;
-  border-radius: 10%;
-  border: solid 5px;
-  border-color: white;
-}
-
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
