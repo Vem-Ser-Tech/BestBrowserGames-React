@@ -114,6 +114,16 @@ const BestBrowserGames = ({ backgroundImage }) => {
                         <div className='BrowserGames-img'>
                             <img src={game.imageURL} alt={game.name} style={{ maxWidth: '200px' }} /><br />
                         </div>
+
+                        <div className='ratings'>
+                            <h3>Avaliações:</h3>
+                            {game.ratings.map((rating, index) => (
+                                <div key={index}>
+                                    <p>Score: {rating.score}</p>
+                                    <p>Descrição: {rating.description}</p>
+                                </div>
+                            ))}
+                        </div>
                     </li>
                 ))}
             </ul>
