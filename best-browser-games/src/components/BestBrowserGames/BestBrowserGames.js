@@ -117,7 +117,7 @@ const BestBrowserGames = ({ backgroundImage }) => {
                         <strong>URL de acesso ao jogo:</strong> <a href={game.url}>{game.url}</a><br />
                         <strong>URL do vídeo de demonstração:</strong> {game.videoURL && <a href={game.videoURL}>{game.videoURL}</a>}<br />
                         <strong>Descrição:</strong> {game.description}<br />
-                        <div className='BrowserGames-img'>
+                        <div className='BrowserGames-img' style={{ margin: '1.5rem auto' }}>
                             <img src={game.imageURL} alt={game.name} style={{ maxWidth: '200px' }} /><br />
                         </div>
 

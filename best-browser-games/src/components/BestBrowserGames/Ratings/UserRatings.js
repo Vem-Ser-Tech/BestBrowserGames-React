@@ -18,8 +18,6 @@ const UserRatings = ({ game, token, fetchGames }) => {
         if (token) {
             const decodedToken = JSON.parse(atob(token.split('.')[1]));
 
-            // console.log('user id: ', decodedToken.id);
-
             return decodedToken.id;
         }
         return null;
@@ -49,11 +47,6 @@ const UserRatings = ({ game, token, fetchGames }) => {
     const handleSubmitRating = async (event) => {
         
         event.preventDefault();
-
-        // Lógica para enviar a pontuação e descrição para a API
-        console.log('ID do Jogo:', game._id);
-        console.log('Pontuação:', localScore);
-        console.log('Descrição:', localDescription);
 
         try {
             const response = await fetch('https://api-best-browser-games.vercel.app/ratings', {
@@ -96,36 +89,64 @@ const UserRatings = ({ game, token, fetchGames }) => {
 
     if (userRatings.length > 0) {
         return (
-            <div>
-                <h3>Suas Avaliações:</h3>
-                {userRatings.map((rating, index) => (
-                    <div key={index}>
-                        <p>Score: {rating.score}</p>
-                        <p>Descrição: {rating.description}</p>
-                    </div>
-                ))}
+            <div style={{ color: '#12a7d9', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ margin: '1.5rem auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <h3>Visão Geral:</h3>
+                    <ReactStarRatings
+                        rating={game.score}
+                        numberOfStars={5}
+                        starRatedColor="#cd45ef"
+                        starHoverColor="#cd45ef"
+                        starDimension="30px"
+                        starSpacing="5px"
+                    />
+                </div>
+                <div style={{ margin: '1.5rem auto'}}>
+                    <h3>Suas Avaliações:</h3>
+                    {userRatings.map((rating, index) => (
+                        <div key={index} style={{ margin: '1.5rem auto', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                            <p>Score: {rating.score}</p>
+                            <p>Descrição: {rating.description}</p>
+                        </div>
+                    ))}
+                </div>
             </div>
         );
     } else {
         return (
-            <div>
+            <div style={{color: '#12a7d9', display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '1.5rem auto'}}>
                 <h3>Avalie:</h3>
-                {/* Usar react-star-ratings para criar uma interface de avaliação com barras de estrelas */}
-                <ReactStarRatings
-                    rating={localScore}
-                    changeRating={handleRatingChange}
-                    numberOfStars={5}
-                    starRatedColor="#ffd700"
-                    starHoverColor="#ffd700"
-                    starDimension="30px"
-                    starSpacing="5px"
-                />
+                <div style={{ margin: '1.5rem auto' }}>
+                    <ReactStarRatings 
+                        rating={localScore}
+                        changeRating={handleRatingChange}
+                        numberOfStars={5}
+                        starRatedColor="#ffd700"
+                        starHoverColor="#ffd700"
+                        starDimension="30px"
+                        starSpacing="5px"
+                    />
+                </div>
                 <textarea
                     value={localDescription}
                     onChange={handleDescriptionChange}
                     placeholder="Digite sua descrição..."
                 />
-                <button onClick={handleSubmitRating}>Enviar Avaliação</button>
+                <button 
+                    onClick={handleSubmitRating}
+                    style={{
+                        backgroundColor: '#afd32c', 
+                        display: 'flex', 
+                        fontWeight: '700',
+                        color: '#000',
+                        border: 'none',
+                        borderRadius: '4px',
+                        margin: '1.5rem auto',
+                        padding: '10px 20px'
+                    }}
+                >
+                        Enviar Avaliação
+                </button>
             </div>
         );
     }
