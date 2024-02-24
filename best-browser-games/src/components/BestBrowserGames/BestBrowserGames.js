@@ -5,6 +5,7 @@ import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons';
 import { OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './BestBrowserGames.css';
+import UserRatings from './Ratings/UserRatings';
 
 const fetchBrowserGames = async (setBrowserGames) => {
     try {
@@ -14,6 +15,7 @@ const fetchBrowserGames = async (setBrowserGames) => {
         }
         const data = await response.json();
         setBrowserGames(data);
+
     } catch (error) {
         console.error('Erro:', error.message);
     }
@@ -22,16 +24,20 @@ const fetchBrowserGames = async (setBrowserGames) => {
 const BestBrowserGames = ({ backgroundImage }) => {
     const [browserGames, setBrowserGames] = useState([]);
     const [isAdmin, setIsAdmin] = useState(false);
-    const { addToast } = useToasts();
+    const { addToast } = useToasts();    
 
     const isUserAdmin = () => {
         const token = localStorage.getItem('token');
         if (token) {
             const decodedToken = JSON.parse(atob(token.split('.')[1]));
-            console.log(decodedToken.roles.includes('admin'));
+            
             return decodedToken.roles.includes('admin');
         }
         return false;
+    };    
+
+    const fetchGames = async () => {
+        fetchBrowserGames(setBrowserGames);
     };
 
     useEffect(() => {
@@ -111,9 +117,11 @@ const BestBrowserGames = ({ backgroundImage }) => {
                         <strong>URL de acesso ao jogo:</strong> <a href={game.url}>{game.url}</a><br />
                         <strong>URL do vídeo de demonstração:</strong> {game.videoURL && <a href={game.videoURL}>{game.videoURL}</a>}<br />
                         <strong>Descrição:</strong> {game.description}<br />
-                        <div className='BrowserGames-img'>
+                        <div className='BrowserGames-img' style={{ margin: '1.5rem auto' }}>
                             <img src={game.imageURL} alt={game.name} style={{ maxWidth: '200px' }} /><br />
                         </div>
+
+                        <UserRatings game={game} token={localStorage.getItem('token')} fetchGames={() => fetchGames(setBrowserGames)}/>
                     </li>
                 ))}
             </ul>
